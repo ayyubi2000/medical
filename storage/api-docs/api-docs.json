@@ -9,6 +9,192 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/about": {
+            "get": {
+                "tags": [
+                    "Abouts"
+                ],
+                "summary": "Get list of About",
+                "description": "Returns list of About",
+                "operationId": "indexAbout",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/About"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Abouts"
+                ],
+                "summary": "Insert a new About",
+                "description": "Insert a new About",
+                "operationId": "storeAbout",
+                "requestBody": {
+                    "description": "About to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/About"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "About created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/About"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/about/{about_id}": {
+            "get": {
+                "tags": [
+                    "Abouts"
+                ],
+                "summary": "Show a About from his Id",
+                "description": "Show a About from his Id",
+                "operationId": "showAbout",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/About--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/About"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "About not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Abouts"
+                ],
+                "summary": "Delete a About",
+                "description": "Delete a About",
+                "operationId": "destroyAbout",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/About--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/About"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "About not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Abouts"
+                ],
+                "summary": "Update an existing About",
+                "description": "Update an existing About",
+                "operationId": "updateAbout",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/About--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "About to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/About"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/About"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "About not found"
+                    }
+                }
+            }
+        },
         "login": {
             "post": {
                 "tags": [
@@ -233,6 +419,378 @@
                         "passport": []
                     }
                 ]
+            }
+        },
+        "/api/carousels": {
+            "get": {
+                "tags": [
+                    "Carousels"
+                ],
+                "summary": "Get list of Carousel",
+                "description": "Returns list of Carousel",
+                "operationId": "indexCarousel",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Carousel"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Carousels"
+                ],
+                "summary": "Insert a new Carousel",
+                "description": "Insert a new Carousel",
+                "operationId": "storeCarousel",
+                "requestBody": {
+                    "description": "Carousel to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Carousel"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Carousel created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Carousel"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/carousels/{carousel_id}": {
+            "get": {
+                "tags": [
+                    "Carousels"
+                ],
+                "summary": "Show a Carousel from his Id",
+                "description": "Show a Carousel from his Id",
+                "operationId": "showCarousel",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Carousel--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Carousel"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Carousel not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Carousels"
+                ],
+                "summary": "Delete a Carousel",
+                "description": "Delete a Carousel",
+                "operationId": "destroyCarousel",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Carousel--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Carousel"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Carousel not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Carousels"
+                ],
+                "summary": "Update an existing Carousel",
+                "description": "Update an existing Carousel",
+                "operationId": "updateCarousel",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Carousel--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Carousel to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Carousel"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Carousel"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Carousel not found"
+                    }
+                }
+            }
+        },
+        "/api/company-news": {
+            "get": {
+                "tags": [
+                    "CompanyNews"
+                ],
+                "summary": "Get list of CompanyNew",
+                "description": "Returns list of CompanyNew",
+                "operationId": "indexCompanyNew",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CompanyNew"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "CompanyNews"
+                ],
+                "summary": "Insert a new CompanyNew",
+                "description": "Insert a new CompanyNew",
+                "operationId": "storeCompanyNew",
+                "requestBody": {
+                    "description": "CompanyNew to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/CompanyNew"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "CompanyNew created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/CompanyNew"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/company-news/{companynew_id}": {
+            "get": {
+                "tags": [
+                    "CompanyNews"
+                ],
+                "summary": "Show a CompanyNew from his Id",
+                "description": "Show a CompanyNew from his Id",
+                "operationId": "showCompanyNew",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/CompanyNew--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/CompanyNew"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CompanyNew not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CompanyNews"
+                ],
+                "summary": "Delete a CompanyNew",
+                "description": "Delete a CompanyNew",
+                "operationId": "destroyCompanyNew",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/CompanyNew--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/CompanyNew"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "CompanyNew not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "CompanyNews"
+                ],
+                "summary": "Update an existing CompanyNew",
+                "description": "Update an existing CompanyNew",
+                "operationId": "updateCompanyNew",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/CompanyNew--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "CompanyNew to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/CompanyNew"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/CompanyNew"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CompanyNew not found"
+                    }
+                }
             }
         },
         "/api/crudgenerators": {
@@ -502,21 +1060,21 @@
                 }
             }
         },
-        "/api/region": {
+        "/api/partners": {
             "get": {
                 "tags": [
-                    "Regions"
+                    "Partners"
                 ],
-                "summary": "Get list of Region",
-                "description": "Returns list of Region",
-                "operationId": "indexRegion",
+                "summary": "Get list of Partner",
+                "description": "Returns list of Partner",
+                "operationId": "indexPartner",
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Regions"
+                                    "$ref": "#/components/schemas/Partner"
                                 }
                             }
                         }
@@ -525,20 +1083,20 @@
             },
             "post": {
                 "tags": [
-                    "Regions"
+                    "Partners"
                 ],
-                "summary": "Insert a new Region",
-                "description": "Insert a new Region",
-                "operationId": "storeRegion",
+                "summary": "Insert a new Partner",
+                "description": "Insert a new Partner",
+                "operationId": "storePartner",
                 "requestBody": {
-                    "description": "Region to create",
+                    "description": "Partner to create",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/Region"
+                                        "$ref": "#/components/schemas/Partner"
                                     }
                                 },
                                 "type": "object"
@@ -548,13 +1106,13 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Region created",
+                        "description": "Partner created",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/Region"
+                                            "$ref": "#/components/schemas/Partner"
                                         }
                                     },
                                     "type": "object"
@@ -568,17 +1126,17 @@
                 }
             }
         },
-        "/api/region/{region_id}": {
+        "/api/partners/{partner_id}": {
             "get": {
                 "tags": [
-                    "Regions"
+                    "Partners"
                 ],
-                "summary": "Show a Region from his Id",
-                "description": "Show a Region from his Id",
-                "operationId": "showRegion",
+                "summary": "Show a Partner from his Id",
+                "description": "Show a Partner from his Id",
+                "operationId": "showPartner",
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/Region--id"
+                        "$ref": "#/components/parameters/Partner--id"
                     }
                 ],
                 "responses": {
@@ -589,7 +1147,7 @@
                                 "schema": {
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/Region"
+                                            "$ref": "#/components/schemas/Partner"
                                         }
                                     },
                                     "type": "object"
@@ -598,20 +1156,20 @@
                         }
                     },
                     "404": {
-                        "description": "Region not found"
+                        "description": "Partner not found"
                     }
                 }
             },
             "delete": {
                 "tags": [
-                    "Regions"
+                    "Partners"
                 ],
-                "summary": "Delete a Region",
-                "description": "Delete a Region",
-                "operationId": "destroyRegion",
+                "summary": "Delete a Partner",
+                "description": "Delete a Partner",
+                "operationId": "destroyPartner",
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/Region--id"
+                        "$ref": "#/components/parameters/Partner--id"
                     }
                 ],
                 "responses": {
@@ -622,7 +1180,7 @@
                                 "schema": {
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/Region"
+                                            "$ref": "#/components/schemas/Partner"
                                         }
                                     },
                                     "type": "object"
@@ -634,31 +1192,31 @@
                         "description": "No content"
                     },
                     "404": {
-                        "description": "Region not found"
+                        "description": "Partner not found"
                     }
                 }
             },
             "patch": {
                 "tags": [
-                    "Regions"
+                    "Partners"
                 ],
-                "summary": "Update an existing Region",
-                "description": "Update an existing Region",
-                "operationId": "updateRegion",
+                "summary": "Update an existing Partner",
+                "description": "Update an existing Partner",
+                "operationId": "updatePartner",
                 "parameters": [
                     {
-                        "$ref": "#/components/parameters/Region--id"
+                        "$ref": "#/components/parameters/Partner--id"
                     }
                 ],
                 "requestBody": {
-                    "description": "Region to update",
+                    "description": "Partner to update",
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
                                 "properties": {
                                     "data": {
-                                        "$ref": "#/components/schemas/Region"
+                                        "$ref": "#/components/schemas/Partner"
                                     }
                                 },
                                 "type": "object"
@@ -674,7 +1232,7 @@
                                 "schema": {
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/components/schemas/Region"
+                                            "$ref": "#/components/schemas/Partner"
                                         }
                                     },
                                     "type": "object"
@@ -683,7 +1241,751 @@
                         }
                     },
                     "404": {
-                        "description": "Region not found"
+                        "description": "Partner not found"
+                    }
+                }
+            }
+        },
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get list of Product",
+                "description": "Returns list of Product",
+                "operationId": "indexProduct",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Insert a new Product",
+                "description": "Insert a new Product",
+                "operationId": "storeProduct",
+                "requestBody": {
+                    "description": "Product to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Product created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/products/{product_id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Show a Product from his Id",
+                "description": "Show a Product from his Id",
+                "operationId": "showProduct",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Product--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete a Product",
+                "description": "Delete a Product",
+                "operationId": "destroyProduct",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Product--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Product not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Update an existing Product",
+                "description": "Update an existing Product",
+                "operationId": "updateProduct",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Product--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Product to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Product"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Product not found"
+                    }
+                }
+            }
+        },
+        "/api/services": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Get list of Service",
+                "description": "Returns list of Service",
+                "operationId": "indexService",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Service"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Insert a new Service",
+                "description": "Insert a new Service",
+                "operationId": "storeService",
+                "requestBody": {
+                    "description": "Service to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Service"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Service created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Service"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/services/{service_id}": {
+            "get": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Show a Service from his Id",
+                "description": "Show a Service from his Id",
+                "operationId": "showService",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Service--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Service"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Delete a Service",
+                "description": "Delete a Service",
+                "operationId": "destroyService",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Service--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Service"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Services"
+                ],
+                "summary": "Update an existing Service",
+                "description": "Update an existing Service",
+                "operationId": "updateService",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Service--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Service to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Service"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Service"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    }
+                }
+            }
+        },
+        "/api/settings": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Get list of Setting",
+                "description": "Returns list of Setting",
+                "operationId": "indexSetting",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Setting"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Insert a new Setting",
+                "description": "Insert a new Setting",
+                "operationId": "storeSetting",
+                "requestBody": {
+                    "description": "Setting to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Setting"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Setting created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Setting"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/settings/{setting_id}": {
+            "get": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Show a Setting from his Id",
+                "description": "Show a Setting from his Id",
+                "operationId": "showSetting",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Setting--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Setting"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Setting not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Delete a Setting",
+                "description": "Delete a Setting",
+                "operationId": "destroySetting",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Setting--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Setting"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Setting not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Settings"
+                ],
+                "summary": "Update an existing Setting",
+                "description": "Update an existing Setting",
+                "operationId": "updateSetting",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Setting--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Setting to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Setting"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Setting"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Setting not found"
+                    }
+                }
+            }
+        },
+        "/api/translations": {
+            "get": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Get list of Translation",
+                "description": "Returns list of Translation",
+                "operationId": "indexTranslation",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Translation"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Insert a new Translation",
+                "description": "Insert a new Translation",
+                "operationId": "storeTranslation",
+                "requestBody": {
+                    "description": "Translation to create",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Translation"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Translation created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Translation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation exception"
+                    }
+                }
+            }
+        },
+        "/api/translations/{translation_id}": {
+            "get": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Show a Translation from his Id",
+                "description": "Show a Translation from his Id",
+                "operationId": "showTranslation",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Translation--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Translation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Translation not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Delete a Translation",
+                "description": "Delete a Translation",
+                "operationId": "destroyTranslation",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Translation--id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Translation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "No content"
+                    },
+                    "404": {
+                        "description": "Translation not found"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Translations"
+                ],
+                "summary": "Update an existing Translation",
+                "description": "Update an existing Translation",
+                "operationId": "updateTranslation",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/Translation--id"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Translation to update",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "data": {
+                                        "$ref": "#/components/schemas/Translation"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/Translation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Translation not found"
                     }
                 }
             }
@@ -932,6 +2234,402 @@
     },
     "components": {
         "schemas": {
+            "About": {
+                "title": "About",
+                "description": "About model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of About",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of About",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of About",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of About",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Abouts": {
+                "title": "Abouts list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/About"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Carousel": {
+                "title": "Carousel",
+                "description": "Carousel model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of Carousel",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of Carousel",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Carousel",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Carousel",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Carousels": {
+                "title": "Carousels list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Carousel"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CompanyNew": {
+                "title": "CompanyNew",
+                "description": "CompanyNew model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of CompanyNew",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of CompanyNew",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of CompanyNew",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of CompanyNew",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "CompanyNews": {
+                "title": "CompanyNews list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CompanyNew"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "CrudGenerator": {
                 "title": "CrudGenerator",
                 "description": "CrudGenerator model",
@@ -1196,35 +2894,587 @@
                 },
                 "type": "object"
             },
-            "Region": {
-                "title": "Region",
-                "description": "Region model",
+            "Partner": {
+                "title": "Partner",
+                "description": "Partner model",
                 "required": [],
                 "properties": {
                     "id": {
                         "title": "id",
-                        "description": "id of Region",
+                        "description": "id of Partner",
                         "type": "integer",
                         "readOnly": "true",
                         "example": "1"
                     },
                     "name": {
                         "title": "name",
-                        "description": "name of Region",
+                        "description": "name of Partner",
                         "type": "string",
                         "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Partner",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Partner",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
                     }
                 },
                 "type": "object"
             },
-            "Regions": {
-                "title": "Regions list",
+            "Partners": {
+                "title": "Partners list",
                 "properties": {
                     "data": {
                         "title": "data",
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/Region"
+                            "$ref": "#/components/schemas/Partner"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Product": {
+                "title": "Product",
+                "description": "Product model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of Product",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of Product",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Product",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Product",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Products": {
+                "title": "Products list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Product"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Service": {
+                "title": "Service",
+                "description": "Service model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of Service",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of Service",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Service",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Service",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Services": {
+                "title": "Services list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Service"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Setting": {
+                "title": "Setting",
+                "description": "Setting model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of Setting",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of Setting",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Setting",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Setting",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Settings": {
+                "title": "Settings list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Setting"
+                        }
+                    },
+                    "first_page_url": {
+                        "title": "first_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=1"
+                    },
+                    "last_page_url": {
+                        "title": "last_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=3"
+                    },
+                    "prev_page_url": {
+                        "title": "prev_page_url",
+                        "type": "string",
+                        "example": "null"
+                    },
+                    "next_page_url": {
+                        "title": "next_page_url",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers?page=2"
+                    },
+                    "current_page": {
+                        "title": "current_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "from": {
+                        "title": "from",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "last_page": {
+                        "title": "last_page",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "path": {
+                        "title": "path",
+                        "type": "string",
+                        "example": "http://localhost:8080/api/merchant-customers"
+                    },
+                    "per_page": {
+                        "title": "per_page",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "total": {
+                        "title": "total",
+                        "type": "integer",
+                        "example": "3"
+                    },
+                    "links": {
+                        "title": "links",
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "url": {
+                                    "title": "url",
+                                    "type": "string",
+                                    "example": "http://localhost:8080/api/merchant-customers?page=2"
+                                },
+                                "label": {
+                                    "title": "label",
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "active": {
+                                    "title": "active",
+                                    "type": "boolean",
+                                    "example": "true"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Translation": {
+                "title": "Translation",
+                "description": "Translation model",
+                "required": [],
+                "properties": {
+                    "id": {
+                        "title": "id",
+                        "description": "id of Translation",
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "title": "name",
+                        "description": "name of Translation",
+                        "type": "string",
+                        "example": "Macbook Pro"
+                    },
+                    "sku": {
+                        "title": "sku",
+                        "description": "sku of Translation",
+                        "type": "string",
+                        "example": "MCBPRO2022"
+                    },
+                    "price": {
+                        "title": "price",
+                        "description": "price of Translation",
+                        "type": "integer",
+                        "example": "99"
+                    },
+                    "created_at": {
+                        "title": "created_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    },
+                    "updated_at": {
+                        "title": "updated_at",
+                        "type": "dateTime",
+                        "readOnly": "true",
+                        "example": "2022-07-04T02:41:42.336Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Translations": {
+                "title": "Translations list",
+                "properties": {
+                    "data": {
+                        "title": "data",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Translation"
                         }
                     },
                     "first_page_url": {
@@ -1537,6 +3787,36 @@
             }
         },
         "parameters": {
+            "About--id": {
+                "name": "About_id",
+                "in": "path",
+                "description": "Id of About",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "Carousel--id": {
+                "name": "Carousel_id",
+                "in": "path",
+                "description": "Id of Carousel",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "CompanyNew--id": {
+                "name": "CompanyNew_id",
+                "in": "path",
+                "description": "Id of CompanyNew",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
             "CrudGenerator--id": {
                 "name": "CrudGenerator_id",
                 "in": "path",
@@ -1557,10 +3837,50 @@
                     "example": "1"
                 }
             },
-            "Region--id": {
-                "name": "Region_id",
+            "Partner--id": {
+                "name": "Partner_id",
                 "in": "path",
-                "description": "Id of Region",
+                "description": "Id of Partner",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "Product--id": {
+                "name": "Product_id",
+                "in": "path",
+                "description": "Id of Product",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "Service--id": {
+                "name": "Service_id",
+                "in": "path",
+                "description": "Id of Service",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "Setting--id": {
+                "name": "Setting_id",
+                "in": "path",
+                "description": "Id of Setting",
+                "required": true,
+                "schema": {
+                    "type": "integer",
+                    "example": "1"
+                }
+            },
+            "Translation--id": {
+                "name": "Translation_id",
+                "in": "path",
+                "description": "Id of Translation",
                 "required": true,
                 "schema": {
                     "type": "integer",
@@ -1586,6 +3906,14 @@
                     "type": "integer",
                     "example": "1"
                 }
+            }
+        },
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
             }
         }
     }
