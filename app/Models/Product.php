@@ -62,7 +62,7 @@ class Product extends BaseModel
 {
     use HasFactory;
 
-    public array $translatable = [];
+    public array $translatable = ['title', 'description'];
 
     protected $casts = [];
 }

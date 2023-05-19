@@ -62,7 +62,7 @@ class About extends BaseModel
 {
     use HasFactory;
 
-    public array $translatable = [];
+    public array $translatable = ['description'];
 
     protected $casts = [];
 }
